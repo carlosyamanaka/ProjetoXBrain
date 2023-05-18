@@ -20,6 +20,8 @@ public class Venda {
 	@JoinColumn(name = "vendedor_id")
 	private Vendedor vendedor;
 	
+	public Venda() {
+	}
 
 	public Vendedor getVendedor() {
 		return vendedor;
@@ -29,8 +31,6 @@ public class Venda {
 		this.vendedor = vendedor;
 	}
 
-	public Venda() {
-	}
 
 	public Long getId() {
 		return id;

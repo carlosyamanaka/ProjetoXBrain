@@ -18,14 +18,29 @@ public class VendaService {
 	@Autowired
 	private VendaRepository vendaRepository;
 	
+	@Autowired
+	private VendedorRepository vendedorRepository;
+	
 	public List<Venda> findAll() {
 		return vendaRepository.findAll();
 	}
 
 	public Venda save(Venda venda) {
 		Venda result = vendaRepository.save(venda);
+		Long count = countVendasByVendedorId(venda.getVendedor().getId());
+		updateTotalVendas(venda.getVendedor().getId(), count);
 		return result;
 	}
 
+	public Long countVendasByVendedorId(Long id) {
+        Long count = vendaRepository.countVendasByVendedorId(id);
+        return count;
+    }
 	
+	private void updateTotalVendas(Long vendedorId, Long totalVendas) {
+        Vendedor vendedor = vendedorRepository.findById(vendedorId)
+                .orElseThrow(() -> new RuntimeException("Vendedor não encontrado com ID: " + vendedorId));
+        vendedor.setTotalVendas(totalVendas);
+        vendedorRepository.save(vendedor);
+    }
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projetoxbrain.vendavendedores.entities.Venda;
-import com.projetoxbrain.vendavendedores.repositories.VendaRepository;
 import com.projetoxbrain.vendavendedores.services.VendaService;
 
 @RestController
@@ -28,7 +27,7 @@ public class VendaController {
 	}
 	@PostMapping
 	public ResponseEntity<?> insert(@RequestBody Venda venda) {
-	    Venda result = service.save(venda);
+	    service.save(venda);
 	    return ResponseEntity.ok("Venda cadastrada");
 	}
 

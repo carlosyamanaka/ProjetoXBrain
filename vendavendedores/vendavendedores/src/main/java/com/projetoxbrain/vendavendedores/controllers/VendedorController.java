@@ -22,9 +22,9 @@ public class VendedorController {
 	private VendedorService service;
 	
 	@GetMapping
-	public List<Venda> findByData(@RequestParam("dataInicio") LocalDate dataInicio, 
-            					  	 @RequestParam("dataFim") LocalDate dataFim){
-		List<Venda> result = service.findVendasBetweenDates(dataInicio, dataFim);
+	public List<Vendedor> findByData(@RequestParam("dataInicio") LocalDate dataInicio, 
+            					  @RequestParam("dataFim") LocalDate dataFim){
+		List<Vendedor> result = service.mostrarVendedor(dataInicio, dataFim);
 		return result;
 	}
 }

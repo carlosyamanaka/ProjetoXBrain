@@ -24,19 +24,15 @@ public class Vendedor {
 
 	public Vendedor() {
 	}
-	
 	public float getMediaVendasDia() {
 		return mediaVendasDia;
 	}
-
 	public void setMediaVendasDia(float mediaVendasDia) {
 		this.mediaVendasDia = mediaVendasDia;
 	}
-
 	public Long getTotalVendas() {
 		return totalVendas;
 	}
-
 	public void setTotalVendas(Long totalVendas) {
 		this.totalVendas = totalVendas;
 	}

@@ -7,13 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.projetoxbrain.vendavendedores.entities.Venda;
 import com.projetoxbrain.vendavendedores.entities.Vendedor;
 
 public interface VendedorRepository extends JpaRepository<Vendedor, Long>{
-	@Query("SELECT vendedor.nome, COUNT(venda) AS totalVendas " +
-	           "FROM Vendedor vendedor " +
-	           "WHERE venda.datavenda >= :dataInicial AND venda.datavenda <= :dataFinal " +
-	           "GROUP BY vendedor.nome")
-	    List<Venda> findVendasBetweenDates(@Param("dataInicial") LocalDate dataInicial, @Param("dataFinal") LocalDate dataFinal);
+	 
+	@Query("SELECT v.vendedor.id, v.vendedor.nome, COUNT(v) FROM Venda v WHERE v.datavenda >= :dataInicial AND v.datavenda <= :dataFinal GROUP BY v.vendedor.id, v.vendedor.nome")
+	List<Object[]> recuperaVendedor(@Param("dataInicial") LocalDate dataInicial, @Param("dataFinal") LocalDate dataFinal);
 }

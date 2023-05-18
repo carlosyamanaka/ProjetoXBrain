@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 @Entity
 @Table(name = "tb_venda")
 public class Venda {
@@ -26,7 +27,7 @@ public class Venda {
 	public Vendedor getVendedor() {
 		return vendedor;
 	}
-
+	
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
 	}

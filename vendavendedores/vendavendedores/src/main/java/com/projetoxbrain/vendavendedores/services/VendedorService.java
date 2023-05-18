@@ -6,21 +6,16 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
-import com.projetoxbrain.vendavendedores.entities.Venda;
 import com.projetoxbrain.vendavendedores.entities.Vendedor;
-import com.projetoxbrain.vendavendedores.repositories.VendaRepository;
 import com.projetoxbrain.vendavendedores.repositories.VendedorRepository;
 
 @Service
 public class VendedorService {
-	@Autowired
-	private VendedorRepository vendedorRepository;
 	
 	@Autowired
-	private VendaRepository vendaRepository;
+	private VendedorRepository vendedorRepository;
 	
 	public List<Vendedor> mostrarVendedor(LocalDate datainicio, LocalDate datafim) {
 		Long dias = calcularDias(datainicio, datafim);

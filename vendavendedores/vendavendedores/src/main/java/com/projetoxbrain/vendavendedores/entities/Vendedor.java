@@ -24,6 +24,7 @@ public class Vendedor {
 
 	public Vendedor() {
 	}
+	
 	public float getMediaVendasDia() {
 		return mediaVendasDia;
 	}

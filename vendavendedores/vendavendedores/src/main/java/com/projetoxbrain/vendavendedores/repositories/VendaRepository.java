@@ -1,4 +1,4 @@
-package com.projetoxbrain.vendavendedores.repositories;
+package com.projetoxbrain.vendavendedores.repositories;	
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

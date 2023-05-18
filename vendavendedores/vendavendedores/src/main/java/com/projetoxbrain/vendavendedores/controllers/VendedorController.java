@@ -21,6 +21,9 @@ public class VendedorController {
 	@Autowired
 	private VendedorService service;
 	
+	//Exemplo de get para ser colocado no postman
+	//http://localhost:8080/vendedores?dataInicio=2023-05-12&dataFim=2023-05-12
+	
 	@GetMapping
 	public List<Vendedor> findByData(@RequestParam("dataInicio") LocalDate dataInicio, 
             					  @RequestParam("dataFim") LocalDate dataFim){
